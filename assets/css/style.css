@@ -1,0 +1,71 @@
+body {
+    background-image: url("../images/background-baseball-large2.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: lightslategray;
+}
+
+.container {
+    background-color: dodgerblue;
+    width: 800px;
+    margin: 5% auto 0 auto;
+    padding: 40px;
+    border-radius: 5px;
+
+}
+.flash {
+    font-size: 90px;
+    font-family: 'Codystar', cursive;
+    color: yellow; 
+
+    
+}
+.flash {
+    visibility: none
+}
+.flash.active {
+    visibility: hidden
+}
+
+#start-button {
+    width: 350px;
+    height: 100px;
+    font-size: 40px;
+    font-family: 'Faster One', cursive;
+    border-radius: 10px;
+    margin-left: 27%;
+    margin-right: 27%;
+    margin-bottom: 5%;
+    margin-top: 10%;
+    
+}
+
+#trivia-page {
+    margin-top: 60px;
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 25px;
+    display: none;
+
+}
+
+#done-button {
+    width: 350px;
+    height: 100px;
+    font-size: 40px;
+    font-family: 'Faster One', cursive;
+    border-radius: 10px;
+    margin-left: 27%;
+    margin-right: 27%;
+    margin-bottom: 5%;
+
+    
+}
+
+#results-page {
+    text-align: center;
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 40px;
+    display: none;
+    margin-top: 75px;
+
+}

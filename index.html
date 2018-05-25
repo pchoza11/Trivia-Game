@@ -1,0 +1,240 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia Game!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />    
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Codystar|Didact+Gothic|Faster+One|Yantramanav" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>"
+    <script src="assets/javascript/app.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="flash"><strong>MLB Trivia Game</strong></div>
+
+        <div id="start-page">
+
+            <button id="start-button">Click to PLAY BALL!!</button>
+
+        </div>
+
+        <div id="trivia-page">
+
+            <h3 id="countdown">Time Remaining: <span id="timeleft"></span> Seconds</h3>
+            <br>            
+
+            <h3 id="">Who won National League Rookie of the Year in the 2017 MLB season?</h3>
+            <br>
+
+            <form id="choice1">
+                <input type="radio" name="answer1" value="bryce harper" checked> Bryce Harper<br><br>
+                <input type="radio" name="answer1" value="jose altuve"> Jose Altuve<br><br>
+                <input type="radio" name="answer1" value="aaron judge"> Aaron Judge<br><br>
+                <input type="radio" name="answer1" value="cody belinger"> Cody Belinger 
+            </form> 
+            <br>
+            <br>
+            <br>
+    
+            <h3 id="">What MLB baseball stadium has the highest seating capacity?</h3>
+            <br>
+
+                <form id="choice2">
+                    <input type="radio" name="answer2" value="yankee stadium" checked> Yankee Stadium<br><br>
+                    <input type="radio" name="answer2" value="dodger stadium"> Dodger Stadium<br><br>
+                    <input type="radio" name="answer2" value="wrigley field"> Wrigley Field<br><br>
+                    <input type="radio" name="answer2" value="fenway park"> Fenway Park 
+                </form> 
+            <br>
+            <br>
+            <br>                
+    
+            <h3 id="">What is the Boston Red Sox mascot?</h3>
+            <br>
+
+                <form id="choice3">
+                    <input type="radio" name="answer3" value="a foot" checked> A Foot<br><br>
+                    <input type="radio" name="answer3" value="green monster"> A Green Monster<br><br>
+                    <input type="radio" name="answer3" value="a sock"> A Sock<br><br>
+                    <input type="radio" name="answer3" value="fcolonial era patriot"> A Colonial Era Patriot 
+                </form> 
+            <br>
+            <br>
+            <br>                
+    
+            <h3 id="">Where is Yasiel Puig from?</h3>
+            <br>
+
+                <form id="choice4"> 
+                    <input type="radio" name="answer4" value="toronto" checked> Toronto<br><br>
+                    <input type="radio" name="answer4" value="domincan republic"> Domincan Republic<br><br>
+                    <input type="radio" name="answer4" value="los angeles"> Los Angeles<br><br>
+                    <input type="radio" name="answer4" value="cuba"> Cuba 
+                </form> 
+
+            <br>
+            <br>
+            <br>
+
+            <button id="done-button">Done</button>
+
+
+        </div>
+
+        <div id="results-page">
+
+            <h3>...Aaand THAT'S THE BALLGAME!</h3>
+            <br>
+
+            <h4 id="correct">Correct Answers: <span id="number-correct"></span></h4>
+            <h4 id="wrong">Incorrect Answers: <span id="number-wrong"></span></h4>
+            <h4 id="unanswered">Unanswered: <span id="not-answered"></span></h4>
+            
+        
+        </div>
+
+        
+
+
+    </div>
+
+
+</body>
+    <script>
+        //Variables
+        //=======================================================================================
+        var timeLeft = 60
+        var correctAnswers = 0;
+        var incorrectAnswers = 0;
+        var unanswered = 0
+        var intervalId;
+        var clockRunning = false;
+
+        //Functions
+        //=======================================================================================
+        window.onload = function() {
+            $("#start-button").click(start);
+            
+            console.log(start)
+        };
+        function start() {
+            //  TODO: Use setInterval to start the count here and set the clock to running.
+            if (!clockRunning) {
+                intervalId = setInterval (count, 1000);
+                clockRunning = true;
+
+            
+            
+
+            }
+
+        }
+        $("timeleft").html(timeLeft)
+
+
+        function count() {
+            timeLeft--;
+            $("#timeleft").html(timeLeft);
+            console.log(start);
+        }    
+        function timesUp() {
+
+        }
+        
+        $(function(){   
+            $("#start-button").click(function(){
+                $('#trivia-page').show();
+                $("#start-button").hide();
+            });  
+        
+        });
+
+        function check(){
+            var q1 = $("#choice1").val();
+            var q2 = $("#choice2").val();
+            var q3 = $("#choice3").val();
+            var q4 = $("#choice4").val();
+
+                if (q1 == "Cody Belinger") {
+                    correctAnswers++;
+                }
+                else {
+                    incorrectAnswers++;
+                }
+            
+                if (q2 == "Dodger Stadium") {
+                    correctAnswers++;
+                }
+                    else {
+                    incorrectAnswers++;
+                }
+                if (q3 == "A Green Monster") {
+                    correctAnswers++;
+                }
+                    else {
+                    incorrectAnswers++;
+                }
+                if (q4 == "Cuba") {
+                    correctAnswers++;
+                }
+                    else {
+                    incorrectAnswers++;
+                }
+        }
+
+        $(function(){   
+            $("#done-button").click(function(){
+                $('#trivia-page').hide();                
+                $('#results-page').show();
+                $("#done-button").hide();
+            });  
+        
+        });
+
+        $("#number-correct").html(correctAnswers)
+        $("#number-wrong").html(incorrectAnswers)
+        
+        
+        
+
+
+
+        // function startGame(){
+
+        //     $("#trivia-page").style(visibility = "visible")
+        // }    
+
+        // $(document).ready(function() {
+        //     var test = 0;
+
+        //     function checkTest() {
+        //         if(test === 1) {
+        //         alert('jay!');
+        //         }
+        //     }
+
+        //     $('body').on('click', '#start-button', function() {
+        //         test = 1;
+        //         checkTest();
+        //     });
+
+
+        // });
+        
+
+        
+        $(document).ready(function(){
+            setInterval(function(){
+                $('.flash').toggleClass('active');
+            }, 500);
+        });
+    
+    </script>
+
+</html>
